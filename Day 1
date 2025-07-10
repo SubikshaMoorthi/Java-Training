@@ -1,7 +1,30 @@
 JAVA
+----
 - General purpose, High-level, Object oriented programming language
 - Follows WORA (Write Once Run Anywhere) principle -> meaning Java code can run on any device with a Java Virtual Machine (JVM)
-- can be used to develop all types of applications
-- Platform independent, portable, secure, robust, multithreaded programming language
+- can be used to develop various types of applications
+- Platform independent, portable, secure, robust, and supports multithreaded programming
 
+JVM - Java Virtual Machine (How it works)
+-----------------------------------------
+The JVM executes Java bytecode. It consists of:
+  - Class Loader: Loads .class files.
+  - Bytecode Verifier: Ensures code security.
+  - Execution Engine: Converts bytecode into machine code.
 
+JVM, JDK, JRE
+-------------
+- JDK: Includes development tools and the JRE.
+- JRE: Provides the libraries and JVM needed to run Java applications.
+- JVM: Executes Java bytecode.
+
+Compiler vs Interpreter
+-----------------------
+Compiler: Converts the entire source code into machine code at once. Creates an executable file.
+Interpreter: Translates and executes code line by line. Does not create a separate executable file.
+
+Basic strcture of Java
+----------------------
+- Package declaration
+- Import necessary libraries
+- Create class & code
