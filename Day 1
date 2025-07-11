@@ -84,4 +84,26 @@ Input methods for data types:
           Full line: scanner.nextLine();
 
 
-                                                                
+                                                                IDENTIFIERS
+
+An identifier is a name used to identify variables, methods, classes, etc.
+
+Rules for valid identifiers:
+----------------------------
+- Must start with: a letter (A–Z or a–z), an underscore _
+- Can contain letters, digits (0–9), _ , or $ after the first character.
+- Cannot use Java reserved keywords (like class, int, etc.).
+- Java is case-sensitive (Age and age are different).
+
+Example:
+int age1 = 25;    ->Valid identifier
+int 1number = 10; ->Invalid (starts with a digit)
+
+                                                              COMMNENTS
+
+Used to explain code. Ignored by Java.
+
+- Single line comments         //
+- Multiline comments          /* */
+- Documentation (JavaDoc)     /** and */
+
