@@ -1,6 +1,8 @@
                                                         	    TREE DATA STRUCTURE
+Tree is a non-linear data structure.
 
-Types:
+Types
+------
   - Binary tree
   - Binary Search tree
   - Avial tree
@@ -12,6 +14,7 @@ A Binary Tree is a hierarchical data structure in which each node has at most tw
 	- The other is the right child.
 
 Characteristics:
+----------------
 	- The topmost node is called the root node.
 	- Each node can have 0, 1, or 2 child nodes.
 	- A node with no children is called a leaf node.
