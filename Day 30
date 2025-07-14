@@ -1,0 +1,137 @@
+                                                                                                      TREE
+Types:
+  - Binary tree
+  - Binary Search tree
+  - Avial tree
+
+Binary tree
+-----------
+
+# Binary Tree without collection
+
+import java.util.*;
+class Node 
+{
+    int data;
+    Node left;
+    Node right;
+    public  Node(int x)
+    {
+        this.data=x;
+        this.left=null;
+        this.right=null;
+    }
+}
+
+public class Main
+{
+    Node root;
+    public void insert(int v)
+    {
+        root=insertval(root,v);
+    }
+    public Node insertval(Node root,int v)
+    {
+        if(root==null)
+        {
+            root=new Node(v);
+            return root;
+        }
+        if(v<root.data)
+        {
+            root.left=insertval(root.left,v);
+        }
+        if(v>root.data)
+        {
+            root.right=insertval(root.right,v);
+        }
+        return root;
+    }
+    
+    public void inorder()
+    {
+        inordertrv(root);
+        System.out.println();
+    }
+    public void inordertrv(Node root)
+    {
+        if(root!=null)
+        {
+            inordertrv(root.left);
+            System.out.print(root.data+" ");
+            inordertrv(root.right);
+        }
+    }
+    
+    public void preorder()
+    {
+        preordertrv(root);
+        System.out.println();
+    }
+    public void preordertrv(Node root)
+    {
+        if(root!=null)
+        {
+            System.out.print(root.data+" ");
+            preordertrv(root.left);
+            preordertrv(root.right);
+        }
+    }
+    
+    public void postorder()
+    {
+        postordertrv(root);
+        System.out.println();
+    }
+    public void postordertrv(Node root)
+    {
+        if(root!=null)
+        {
+            postordertrv(root.left);
+            postordertrv(root.right);
+            System.out.print(root.data+" ");
+        }
+    }
+    
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		Main ob=new Main();
+		
+		int n=sc.nextInt();
+		int [] a = new int[n];
+		for(int i=0;i<n;i++)
+		{
+		    a[i]=sc.nextInt();
+		}
+		
+		while(true)
+		{
+		    System.out.print("\n1.insert\n2.Inorder\n3.Preorder\n4.Postorder\n5.Exit\nEnter choice:");
+		    int c=sc.nextInt();
+		    switch(c)
+		    {
+		        case 1:
+		            for(int i:a)
+		            {
+		                ob.insert(i);
+		            }
+		            break;
+		        case 2:
+		            ob.inorder();
+		            break;
+		        case 3:
+		            ob.preorder();
+		            break;
+		        case 4:
+		            ob.postorder();
+		            break;
+		        case 5:
+		            System.out.print("Exiting..");
+		            return;
+		        default:
+		            System.out.print("Invalid choice");
+		    }
+		}
+	}
+}
