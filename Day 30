@@ -4,19 +4,31 @@ Types:
   - Binary Search tree
   - Avial tree
 
-Binary tree
+Binary Tree
 -----------
-	- Binary tree data structure is a hierarchical data structure in which each node have almost 2 child nodes.
-	- One is refferred as left node and another one is right node.
+A Binary Tree is a hierarchical data structure in which each node has at most two children:
+	- One is referred to as the left child.
+	- The other is the right child.
 
 Characteristics:
-	- The top most node is called as root node.
-	- Each node can have 0 or 1 or 2 child nodes.
-	- A node that doesn't have any child node is refferred as leaf node.
-	- Binary tree doesn't neccessary ordered or balanced as binary search tree.
+	- The topmost node is called the root node.
+	- Each node can have 0, 1, or 2 child nodes.
+	- A node with no children is called a leaf node.
+	- A binary tree is not necessarily ordered (like a BST) or balanced (like an AVL tree).
+
+Tree Traversal Types
+--------------------
+Traversal means visiting all the nodes in a tree in a specific order.
+
+1. In-order Traversal
+	Left -> Root -> Right
+2. Pre-order Traversal
+	Root -> Left -> Right
+3. Post-order Traversal
+	Left -> Right -> Root
 
 
-# Binary Tree without collection
+# Binary Tree without collection (Insert & Traversal)
 
 import java.util.*;
 class Node 
