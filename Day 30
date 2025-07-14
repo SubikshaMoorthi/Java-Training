@@ -118,6 +118,18 @@ public class Main
         }
     }
     
+    public boolean searches(Node root, int k) 
+    {
+        if (root == null)
+            return false;
+        if (root.data == k)
+            return true;
+        if (k < root.data)
+            return searches(root.left, k);
+        else
+            return searches(root.right, k);
+    }
+    
 	public static void main(String[] args) 
 	{
 		Scanner sc = new Scanner(System.in);
@@ -132,7 +144,7 @@ public class Main
 		
 		while(true)
 		{
-		    System.out.print("\n1.insert\n2.Inorder\n3.Preorder\n4.Postorder\n5.Exit\nEnter choice:");
+		    System.out.print("\n1.insert\n2.Inorder\n3.Preorder\n4.Postorder\n5.Search\n6.Exit\nEnter choice:");
 		    int c=sc.nextInt();
 		    switch(c)
 		    {
@@ -152,6 +164,14 @@ public class Main
 		            ob.postorder();
 		            break;
 		        case 5:
+		            int k = sc.nextInt();
+
+                    	    if (ob.searches(ob.root, k))
+                        	System.out.println("Found");
+                    	    else
+                        	System.out.println("Not Found");
+                    	    break;
+		        case 6:
 		            System.out.print("Exiting..");
 		            return;
 		        default:
@@ -160,7 +180,6 @@ public class Main
 		}
 	}
 }
-
 
 Values can also be inserted manually for BT:
 -------------------------------------------
