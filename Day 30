@@ -6,6 +6,15 @@ Types:
 
 Binary tree
 -----------
+	- Binary tree data structure is a hierarchical data structure in which each node have almost 2 child nodes.
+	- One is refferred as left node and another one is right node.
+
+Characteristics:
+	- The top most node is called as root node.
+	- Each node can have 0 or 1 or 2 child nodes.
+	- A node that doesn't have any child node is refferred as leaf node.
+	- Binary tree doesn't neccessary ordered or balanced as binary search tree.
+
 
 # Binary Tree without collection
 
