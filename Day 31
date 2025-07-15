@@ -1,0 +1,243 @@
+                                                                                        BINARY SEARCH TREE
+
+A Binary Search Tree is a type of binary tree where each node follows specific ordering rules(i.e, BST Properties).
+
+BST Properties:
+---------------
+- The left child of a node has a value less than the node's value.
+- The right child of a node has a value greater than the node's value.
+- This rule is recursively applied to every node in the tree.
+- Average Time Complexity for search/insert/delete operations is O(log n) (for balanced BST).
+
+Deletion in BST:
+----------------
+To delete a node in a BST:
+- Case 1: 
+    Node has no children (leaf node) – simply remove it.
+- Case 2: 
+    Node has one child – remove the node and connect its child to its parent.
+- Case 3: 
+    Node has two children – replace the node's value with its inorder successor (or inorder predecessor), then delete that successor/predecessor.
+
+Inorder Successor:
+------------------
+The inorder successor of a node is the smallest node in its right subtree.
+
+To find it:
+- Move to the right child once.
+- Then keep moving left until you can't anymore.
+
+
+# Deletion in BST
+-----------------
+
+import java.util.*;
+class Node
+{
+    int data;
+    Node left,right;
+    public Node(int x)
+    {
+        this.data=x;
+        this.left=null;
+        this.right=null;
+    }
+}
+
+public class Main
+{
+    Node root;
+    public void insert(int v)
+    {
+        root=insertval(root,v);
+    }
+    
+    public Node insertval(Node root,int v)
+    {
+        if(root==null)
+        {
+            root=new Node(v);
+            return root;
+        }
+        if(v<root.data)
+        {
+            root.left=insertval(root.left,v);
+        }
+        if(v>root.data)
+        {
+            root.right=insertval(root.right,v);
+        }
+        return root;
+    }
+    
+    public void inorder()
+    {
+        inordertrv(root);
+        System.out.println();
+    }
+    public void inordertrv(Node root)
+    {
+        if(root!=null)
+        {
+            inordertrv(root.left);
+            System.out.print(root.data+" ");
+            inordertrv(root.right);
+        }
+    }
+    
+    public Node del(Node root, int v) 
+	{
+		if(root == null) return null;
+		if(v < root.data) 
+		{
+			root.left = del(root.left,v);
+		}
+		else if(v > root.data) 
+		{
+			root.right = del(root.right,v);
+		} 
+		else 
+		{
+			if(root.left == null) 
+			{
+				return root.right;
+			}
+			if(root.right == null) 
+			{
+				return root.left;
+			}
+			root.data = min(root.right);
+			root.right = del(root.right,root.data);
+		}
+		return root;
+	}
+	
+	public int min(Node root) 
+	{
+		int min = root.data;
+		while(root.left != null) 
+		{
+			min = root.left.data;
+			root = root.left;
+		}
+		return root.data;
+	}
+	
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		Main ob=new Main();
+		
+		int n=sc.nextInt();
+		int [] a = new int[n];
+		for(int i=0;i<n;i++)
+		{
+		    a[i]=sc.nextInt();
+		}
+		
+		for(int i:a)
+		{
+		  ob.insert(i);
+		}
+		
+		int val=sc.nextInt();
+		ob.root = ob.del(ob.root, val);
+		
+		ob.inorder();
+	}
+}
+
+
+# Balanced or Not (Tree)
+-----------------------
+
+import java.util.*;
+class Node
+{
+    int data;
+    Node left,right;
+    public Node(int x)
+    {
+        this.data=x;
+        this.left=null;
+        this.right=null;
+    }
+}
+
+public class Main
+{
+    Node root;
+    public void insert(int v)
+    {
+        root=insertval(root,v);
+    }
+    
+    public Node insertval(Node root,int v)
+    {
+        if(root==null)
+        {
+            root=new Node(v);
+            return root;
+        }
+        if(v<root.data)
+        {
+            root.left=insertval(root.left,v);
+        }
+        if(v>root.data)
+        {
+            root.right=insertval(root.right,v);
+        }
+        return root;
+    }
+
+    public boolean isbal()
+    {
+        return (height(root)!=-1);
+    }
+	
+	public int height(Node root)
+	{
+	    if(root==null)
+	        return 0;
+	    
+	    int l=height(root.left);
+	    if(l==-1)
+	        return -1;
+	    
+	    int r=height(root.right);
+	    if(r==-1)
+	        return -1;
+	    
+	    if (Math.abs(l - r) > 1)
+            return -1;
+
+        return Math.max(l, r) + 1;
+	}
+	
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		Main ob=new Main();
+		
+		int n=sc.nextInt();
+		int [] a = new int[n];
+		for(int i=0;i<n;i++)
+		{
+		    a[i]=sc.nextInt();
+		}
+		
+		for(int i:a)
+		{
+		  ob.insert(i);
+		}
+		
+		if(ob.isbal())
+		{
+		    System.out.print("Balanced");
+		}
+		else
+		{
+		    System.out.print("Not Balanced");
+		}
+	}
+}
