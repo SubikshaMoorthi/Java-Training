@@ -241,3 +241,85 @@ public class Main
 		}
 	}
 }
+
+# Max and Min element of a tree
+-------------------------------
+
+import java.util.*;
+class Node 
+{
+	int data;
+	Node left;
+	Node right;
+
+	public Node(int v) 
+	{
+		this.data=v;
+		this.left=null;
+		this.right=null;
+	}
+}
+public class Main 
+{
+	Node root;
+	public void insert(int v) 
+	{
+		root = insval(root,v);
+	}
+	public Node insval(Node root, int v) 
+	{
+		if(root == null) return new Node(v);
+		if(v<root.data) 
+		{
+			root.left = insval(root.left, v);
+		}
+		else if (v>root.data) 
+		{
+			root.right = insval(root.right, v);
+		}
+		return root;
+	}
+	
+	public int min()
+	{
+	    if(root==null) return 0;
+	    
+	    Node temp=root;
+	    while(temp.left!=null)
+	    {
+	        temp=temp.left;
+	    }
+	    return temp.data;
+	}
+	
+	public int max()
+	{
+	    if(root==null) return 0;
+	    
+	    Node temp=root;
+	    while(temp.right!=null)
+	    {
+	        temp=temp.right;
+	    }
+	    return temp.data;
+	}
+	
+	public static void main(String [] args)
+	{
+	    Main ob=new Main();
+	    Scanner sc = new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int [] arr=new int[n];
+	    for(int i=0;i<n;i++)
+	    {
+	        arr[i]=sc.nextInt();
+	    }
+	    for(int i:arr)
+	    {
+	    ob.insert(i);
+	    }
+	    
+	    System.out.println("Min:"+ob.min());
+	    System.out.print("Max:"+ob.max());
+	}
+}
