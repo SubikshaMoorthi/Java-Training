@@ -1,2 +1,155 @@
-                                                                                                AVIAL TREE
+                                                                      AVL TREE
 
+- AVL stands for Adelson-Velsky and Landis, the inventors of this data structure.
+- It is a type of Binary Search Tree (BST).
+- AVL Tree is a self-balancing binary search tree.
+- The main goal of an AVL Tree is to maintain balance after every insertion or deletion.
+- It is also referred to as a Highly Balanced BST.
+
+Characteristics:
+----------------
+*Balancing Factor (BF):
+
+- Formula:
+    Balancing Factor (BF) = height(left subtree) - height(right subtree)
+- For every node, balancing factor must be -1,0 or 1.
+- If BF > 1 -> the left subtree is heavy
+  If BF < -1 -> the right subtree is heavy
+  If BF = 0 -> the subtree is perfectly balanced
+
+*Balancing Operations:
+When the tree becomes unbalanced (|BF| > 1), rotations are used to balance it.
+
+Types of Rotation:
+------------------
+- LL Rotation (Single Right Rotation): When inserted into the left subtree of left child.
+- RR Rotation (Single Left Rotation): When inserted into the right subtree of right child.
+- LR Rotation (Left-Right Rotation): When inserted into the right subtree of left child.
+- RL Rotation (Right-Left Rotation): When inserted into the left subtree of right child.
+
+
+Insert the following nodes
+21, 26, 30, 9, 4, 14, 28, 18, 15, 10, 2, 3, 7
+
+Final balanced tree
+
+                                    14
+                                /        \
+                               4            26
+                            /    \        /    \
+                          2        9     18     30
+                          \       /  \   /  \    /
+                           3    7   10  15  21  28
+
+
+
+# Balanced Insertion
+
+class Node 
+{
+    int data, height;
+    Node left, right;
+
+    public Node(int x) 
+    {
+        this.data = x;
+        this.height = 1;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+public class Main 
+{
+    Node root;
+
+    public void insertval(int v) 
+    {
+        root = insert(root, v);
+    }
+
+    public Node insert(Node root, int v) 
+    {
+        if (root == null) {
+            return new Node(v);
+        }
+
+        if (v < root.data) 
+        {
+            root.left = insert(root.left, v);
+        } 
+        else if (v > root.data) 
+        {
+            root.right = insert(root.right, v);
+        } 
+        else 
+        {
+            return root;
+        }
+
+        root.height = 1 + Math.max(height(root.left), height(root.right));
+        int bal = balance(root);
+
+        if (bal > 1 && v < root.left.data) 
+        {
+            return Rrotate(root);
+        }
+
+        if (bal < -1 && v > root.right.data) 
+        {
+            return Lrotate(root);
+        }
+
+        if (bal > 1 && v > root.left.data) 
+        {
+            root.left = Lrotate(root.left);
+            return Rrotate(root);
+        }
+
+        if (bal < -1 && v < root.right.data) 
+        {
+            root.right = Rrotate(root.right);
+            return Lrotate(root);
+        }
+
+        return root;
+    }
+
+    public int height(Node root) 
+    {
+        return root == null ? 0 : root.height;
+    }
+
+    public int balance(Node root) 
+    {
+        return root == null ? 0 : height(root.left) - height(root.right);
+    }
+
+    public Node Rrotate(Node root) 
+    {
+        Node t1 = root.left;
+        Node t2 = t1.right;
+
+        t1.right = root;
+        root.left = t2;
+
+        root.height = 1 + Math.max(height(root.left), height(root.right));
+        t1.height = 1 + Math.max(height(t1.left), height(t1.right));
+
+        return t1;
+    }
+
+    public Node Lrotate(Node root) 
+    {
+        Node t1 = root.right;
+        Node t2 = t1.left;
+
+        t1.left = root;
+        root.right = t2;
+
+        root.height = 1 + Math.max(height(root.left), height(root.right));
+        t1.height = 1 + Math.max(height(t1.left), height(t1.right));
+
+        return t1;
+    }
+}
