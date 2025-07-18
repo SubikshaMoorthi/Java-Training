@@ -1,9 +1,9 @@
                                                                       JAVA
 
-- General purpose, High-level, Object oriented programming language
-- Follows WORA (Write Once Run Anywhere) principle -> meaning Java code can run on any device with a Java Virtual Machine (JVM)
-- can be used to develop various types of applications
-- Platform independent, portable, secure, robust, and supports multithreaded programming
+- General purpose, High-level, Object oriented programming language.
+- Follows WORA (Write Once Run Anywhere) principle -> meaning Java code can run on any device with a Java Virtual Machine (JVM).
+- can be used to develop various types of applications.
+- Platform independent, portable, secure, robust, and supports multithreaded programming.
 
 JVM - Java Virtual Machine (How it works)
 -----------------------------------------
