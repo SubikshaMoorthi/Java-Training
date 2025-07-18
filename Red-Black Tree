@@ -1,0 +1,30 @@
+                                                                                                RED-BLACK TREE
+
+- A Red-Black Tree is a type of self-balancing Binary Search Tree (BST) that ensures O(log n) time complexity for insertion, deletion, and search operations.
+- It combines concepts from AVL Trees (balancing) and BSTs (ordered structure). 
+- Each node stores an extra bit for color — either Red or Black — which helps maintain the tree’s balance with fewer rotations compared to AVL trees.
+
+Key Properties:
+---------------
+  - Each node is either Red or Black.
+  - The root node is always Black.
+  - Red nodes cannot have red children.
+  - Every path from a node to its descendant leaves contains the same number of black nodes (black-height).
+
+Insertion Rules:
+----------------
+- A new node is always inserted as Red.
+- If the new node is the root, recolor it Black.
+- If the new node creates a Red-Red conflict, fix it using the following cases.
+
+Red-Red Conflict Cases:
+-----------------------
+Case 1: Uncle is Red
+- Recolor parent and uncle to Black, and grandparent to Red.
+- Recursively check for Red-Red conflict at the grandparent.
+
+Case 2: Uncle is Black or Null
+- Perform rotation(s) (similar to AVL Tree) based on insertion position (LL, LR, RL, RR).
+- Recolor nodes involved to maintain Red-Black properties.
+
+This process may propagate upwards until all Red-Black properties are restored.
