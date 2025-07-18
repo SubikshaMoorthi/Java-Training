@@ -121,11 +121,11 @@ Binary Operators
 
 Categories:
 -----------
-- Arithmetic
-- Relational (Comparison)
-- Logical
-- Bitwise
-- Assignment
+- Arithmetic [+,-,*,/]
+- Relational (Comparison) [<,>,==]
+- Logical [&&,||,!]
+- Bitwise [<<,>>,|,&]
+- Assignment [=]
 
 Ternary Operator
 ----------------
