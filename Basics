@@ -107,3 +107,32 @@ Used to explain code. Ignored by Java.
 - Multiline comments          /* */
 - Documentation (JavaDoc)     /** and */
 
+                                                              OPERATORS
+
+Unary Operators
+---------------
+- Operate on only one operand.
+- Common examples: ++, --, +, -, !, ~
+
+Binary Operators
+----------------
+- Operate on two operands.
+- Most commonly used in Java.
+
+Categories:
+-----------
+- Arithmetic
+- Relational (Comparison)
+- Logical
+- Bitwise
+- Assignment
+
+Ternary Operator
+----------------
+- Operates on three operands.
+- Also called conditional operator (?:)
+
+Syntax:
+condition ? expr1 : expr2;
+
+If condition is true, returns expr1; else returns expr2.
