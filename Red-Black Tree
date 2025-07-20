@@ -17,7 +17,7 @@ Insertion Rules:
 - If the new node is the root, recolor it Black.
 - If the new node creates a Red-Red conflict, fix it using the following cases.
 
-Red-Red Conflict Cases:
+Red-Red Conflict Cases :
 -----------------------
 Case 1: Uncle is Red
 - Recolor parent and uncle to Black, and grandparent to Red.
