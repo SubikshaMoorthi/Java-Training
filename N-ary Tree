@@ -1,4 +1,4 @@
-                                                                                              N-ary Tree (Genric Tree)
+                                                                        N-ary Tree (Genric Tree)
 
 - An N-ary tree is a tree data structure in which each node can have at most N children, where N can be any number. 
 - The value of N is not fixed to 2 as in binary trees—it can be any integer ≥ 1.
