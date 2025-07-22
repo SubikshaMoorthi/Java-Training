@@ -22,3 +22,132 @@ Traversal Algorithms
     Explores neighbors level-by-level using a queue
 - DFS (Depth-First Search)	
     Explores as far as possible along each branch using a stack/recursion
+
+Representation
+--------------
+To store graphs efficiently in memory, two standard representations are used:
+
+1. Adjacency Matrix
+    - A 2D matrix of size V x V (where V is number of vertices)
+    - matrix[i][j] = 1 (or weight w) if there's an edge from vertex i to j
+    - matrix[i][j] = 0 if no edge
+
+2. Adjacency List
+    - An array or list where each index represents a vertex
+    - Each index stores a list of connected vertices
+
+
+# Undirected Graph using Adjacency Matrix
+
+import java.util.*;
+public class Main
+{
+    int [][] a;
+    int v;
+    
+    public Main(int x)
+    {
+        this.v=x;
+        a=new int[v][v];
+    }
+    
+    public void edge(int i,int j)
+    {
+        a[i][j]=1;
+        a[j][i]=1;
+    }
+    
+    public void zeros(int i,int j)
+    {
+        a[i][j]=0;
+        a[j][i]=0;
+    }
+    
+    public void display()
+    {
+        for(int i=0;i<v;i++)
+        {
+            for(int j=0;j<v;j++)
+            {
+            System.out.print(a[i][j]);
+            }
+            System.out.println();
+        }
+    }
+    
+	public static void main(String[] args) 
+	{
+	    Scanner sc = new Scanner(System.in);
+	    int v = sc.nextInt();
+		Main ob=new Main(v);
+		
+		System.out.print("Enter no of connections:");
+		int e=sc.nextInt();
+		
+		for(int i=0;i<e;i++)
+		{
+		    int f=sc.nextInt();
+		    int t=sc.nextInt();
+		    ob.edge(f,t);
+		}
+		
+		ob.display();
+	}
+}
+
+
+# Undirected Graph using Adjacency List
+
+import java.util.*;
+public class Main
+{
+    List<List<Integer>> a;
+    int v;
+
+    public Main(int x)
+    {
+        this.v=x;
+        a=new ArrayList<>();
+        for(int i=0;i<v;i++)
+        {
+            a.add(new ArrayList<>());
+        }
+    }
+    public void edge(int i,int j)
+    {
+       a.get(i).add(j);
+       a.get(j).add(i);
+    }
+    
+    public void display()
+    {
+        for(int i=0;i<v;i++)
+        {
+            for(int j=0;j<i;j++)
+            {
+                System.out.print(j+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    
+	public static void main(String[] args) 
+	{
+	    Scanner sc = new Scanner(System.in);
+	    int v = sc.nextInt();
+		Main ob=new Main(v);
+		
+		System.out.print("Enter no of connections:");
+		int e=sc.nextInt();
+		
+		for(int i=0;i<e;i++)
+		{
+		    int f=sc.nextInt();
+		    int t=sc.nextInt();
+		    ob.edge(f,t);
+		}
+		
+		ob.display();
+	}
+}
