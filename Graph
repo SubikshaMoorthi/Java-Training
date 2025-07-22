@@ -1,0 +1,24 @@
+                                                                                        GRAPH
+
+- Non-linear data structures, allow traversal in a hierarchical or interconnected manner.
+- A Graph G = (V, E)
+    V: Vertices
+    E: Edges
+- Has n nodes and n-1 edges.
+
+Types of Graph
+--------------
+- Directed: Edges have a direction (from one vertex to another).
+- Undirected: Edges do not have direction.
+- Sparse:	Few edges compared to the number of vertices.
+- Dense:	Many edges; number of edges close to maximum possible.
+- Complete:	All vertices are connected.
+- Cyclic:	Contains at least one cycle.
+- Acyclic:	Contains no cycles.
+
+Traversal Algorithms
+--------------------
+- BFS (Breadth-First Search)	
+    Explores neighbors level-by-level using a queue
+- DFS (Depth-First Search)	
+    Explores as far as possible along each branch using a stack/recursion
