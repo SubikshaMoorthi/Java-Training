@@ -1,0 +1,31 @@
+                                                                                        RECURSION
+
+The function that calls itself.
+
+# Tower Of Hanoi
+----------------
+
+import java.util.*;
+public class Main 
+{
+    //ABC
+    public void hanoi(int n, int s, int a,int d)
+    {
+        if(n==0)
+        {
+            return;
+        }
+        //ACB
+        hanoi(n-1,s,d,a);
+        System.out.println("Move "+n+" from "+s +" to "+ d);
+        //BCA
+        hanoi(n-1,a,s,d);
+        
+    }
+    public static void main(String[] args)
+    {
+        Main ob=new Main();
+        int n=3;
+        ob.hanoi(n,1,2,3);
+    }
+}
