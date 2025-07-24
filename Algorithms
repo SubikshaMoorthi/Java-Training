@@ -1,0 +1,51 @@
+# Dijikstra's Algorithm
+
+import java.util.*;
+public class Main
+{
+	class Node 
+	{
+	    int node;
+	    int w;
+	    public Node(int x , int y)
+	    {
+	        this.node = x;
+	        this.w = y;
+	    }
+	}
+	
+	public static int diji(int n , int s , int des ,List<List<Node>> x)
+	{
+	    int d[] = new int[n];
+	    Arrays.fill(d, Integer.MAX_VALUE);
+	    
+	    PriorityQueue<Node> q = new PriorityQueue<>(Comparator.compareInt(p.w));
+	    
+	    q.add(new Node(s,0));
+	    
+	    while(!q.isEmpty())
+	    {
+	        Node temp = q.poll();
+	        int v = temp.node;
+	        if(v== des)
+	        {
+	            return d[des];
+	        }
+	        
+	        for(Node i : x.get(v))
+	        {
+	            int y = i.node;
+	            int w = i.w;
+	            
+	            if(d[v] + w <d[y])
+	            {
+	                d[y] = d[v] + w;
+	                q.add(y,a[y]);
+	            }
+	        }
+	        
+	    }
+	    
+	    return d[des] == Integer.MAX_VALUE ? -1 : d[des];
+	}
+}
