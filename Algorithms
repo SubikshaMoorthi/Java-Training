@@ -49,3 +49,62 @@ public class Main
 	    return d[des] == Integer.MAX_VALUE ? -1 : d[des];
 	}
 }
+
+
+# Prim's Algorithm
+
+import java.util.*;
+public class Main
+{
+    class Node {
+        int node;
+        int w;
+        public Node(int x, int w)
+        {
+            this.node = x;
+            this.w = w;
+        }
+    }
+
+    public static void prim(List<List<Node>> x , int n)
+    {
+        boolean v[] = new boolean[n];
+        int d[] = new int[n];
+        int p[] = new int[n];
+
+        Arrays.fill(d, Integer.MAX_VALUE);
+        d[0] = 0;
+        p[0] = -1;
+
+        PriorityQueue<Node> q = new PriorityQueue<>((a,b)->a.w - b.w);
+        q.add(new Main().new Node(0, 0));
+
+        while(!q.isEmpty())
+        {
+            Node temp = q.poll();
+            int y = temp.node;
+
+            if(v[y])
+                continue;
+
+            v[y] = true;
+
+            for(Node i : x.get(y))
+            {
+                int nei = i.node;
+                int w = i.w;
+
+                if(!v[nei] && w < d[nei])
+                {
+                    d[nei] = w;
+                    p[nei] = y;
+                    q.add(new Main().new Node(nei, w));
+                }
+            }
+        }
+    }
+}
+
+
+# Kruskal Algorithm
+
