@@ -5,6 +5,42 @@
 - can be used to develop various types of applications.
 - Platform independent, portable, secure, robust, and supports multithreaded programming.
 
+
+Java code Stricture
+-------------------
+// 1. Package (optional)
+package mypackage;
+
+// 2. Class
+public class MyClass 
+{
+
+    // 3. Variables
+    int x;
+    String name;
+
+    // 4. Constructor
+    public MyClass(int x, String name) 
+    {
+        this.x = x;
+        this.name = name;
+    }
+
+    // 5. Method
+    public void show() 
+    {
+        System.out.println(x + " " + name);
+    }
+
+    // 6. Main method (starting point)
+    public static void main(String[] args) 
+    {
+        MyClass obj = new MyClass(10, "Java");
+        obj.show();
+    }
+}
+
+
 JVM - Java Virtual Machine (How it works)
 -----------------------------------------
 The JVM executes Java bytecode. It consists of:
